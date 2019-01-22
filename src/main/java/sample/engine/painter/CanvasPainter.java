@@ -9,9 +9,14 @@ public class CanvasPainter {
     private final GraphicsContext _gc;
 
     public CanvasPainter(int left, int top, GraphicsContext graphicsContext2D) {
+        setPos(left, top);
+        _gc = graphicsContext2D;
+    }
+
+    public void setPos(int left, int top)
+    {
         _left = left;
         _top = top;
-        _gc = graphicsContext2D;
     }
 
     public void setFill(Paint blue) {
