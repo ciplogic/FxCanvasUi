@@ -1,4 +1,4 @@
-package sample.models;
+package sample.mines.models;
 
 import org.junit.Test;
 
@@ -10,7 +10,7 @@ public class TableDataTest {
         var table = new TableData(20, 20);
         table.setBomb(2,2);
 
-        assertTrue(table.hashBomb(2,2));
+        assertTrue(table.hasBomb(2,2));
     }
 
 }
