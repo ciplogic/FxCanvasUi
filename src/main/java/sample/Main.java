@@ -4,13 +4,14 @@ import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import sample.mines.MainViewBuilder;
+import sample.painting.MainPaintViewBuilder;
 
 public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) {
-        primaryStage.setTitle("Hello World");
-        var mainViewBuilder = new MainViewBuilder();
+        primaryStage.setTitle("Painter");
+        var mainViewBuilder = new MainPaintViewBuilder();
 
         primaryStage.setScene(new Scene(mainViewBuilder._view));
         primaryStage.show();

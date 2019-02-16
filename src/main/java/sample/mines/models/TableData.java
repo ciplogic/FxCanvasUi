@@ -4,16 +4,17 @@ import sample.engine.utils.Rand;
 
 public class TableData {
     public static final int BOMB_VALUE = 16;
+    public static final int EXPOSED = 32;
     private int _width;
     private int _height;
     int[] _tableData;
 
     public TableData(int width, int height) {
 
-        _width = width+2;
-        _height = height+2;
+        _width = width + 2;
+        _height = height + 2;
 
-        _tableData = new int[_width*_height];
+        _tableData = new int[_width * _height];
     }
 
     public void setBomb(int row, int col) {
@@ -30,10 +31,11 @@ public class TableData {
     }
 
     public int getWidth() {
-        return _width-2;
+        return _width - 2;
     }
+
     public int getHeight() {
-        return _height-2;
+        return _height - 2;
     }
 
     public int getCell(int row, int col) {
@@ -42,11 +44,10 @@ public class TableData {
     }
 
     public void setRandomBombs(int countBombs) {
-        for(int i = 0; i<countBombs;){
-            var newRow = Rand.get(1, _height-1);
-            var newCol = Rand.get(1, _width-1);
-            if(!hasBomb(newRow, newCol))
-            {
+        for (int i = 0; i < countBombs; ) {
+            var newRow = Rand.get(1, _height - 1);
+            var newCol = Rand.get(1, _width - 1);
+            if (!hasBomb(newRow, newCol)) {
                 setBomb(newRow, newCol);
                 i++;
             }
@@ -56,10 +57,16 @@ public class TableData {
 
     public int countBombs(int row, int col) {
         var result = 0;
-        for(var i = -1; i<=1; i++)
-            for(var j = -1; j<=1; j++)
-                if(hasBomb(row+i, col +j))
+        for (var i = -1; i <= 1; i++)
+            for (var j = -1; j <= 1; j++)
+                if (hasBomb(row + i, col + j))
                     result++;
         return result;
+    }
+
+    public void setVisible(int row, int col) {
+        var oldValue = getCell(row, col);
+        oldValue |= EXPOSED;
+        setValue(row, col, oldValue);
     }
 }

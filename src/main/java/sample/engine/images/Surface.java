@@ -1,5 +1,6 @@
 package sample.engine.images;
 
+import javafx.scene.image.Image;
 import sample.engine.Point2i;
 
 import javax.imageio.ImageIO;
@@ -51,6 +52,11 @@ public class Surface {
         return getImageFromArray(_pixels, _width, _height);
     }
 
+    public Image load(String fileName){
+        File file = new File(fileName);
+        Image image = new Image(file.toURI().toString());
+        return image;
+    }
     public void saveToDisk(String fileName, String extension) {
         BufferedImage img = toJavaImage();
         save(img, fileName, extension);
