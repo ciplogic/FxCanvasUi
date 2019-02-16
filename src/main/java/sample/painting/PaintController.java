@@ -18,7 +18,7 @@ public class PaintController {
     }
 
     void setup(){
-        _router.register("File_Open", this::onFileOpen);
+        _router.register("File_Open", t -> onFileOpen());
     }
 
     private void onFileOpen() {

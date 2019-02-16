@@ -48,7 +48,7 @@ public class MainPaintViewBuilder {
 
     private MenuItem addMenuItem(Menu menuFile, String menuItemCaption, String actionName) {
         MenuItem add = new MenuItem(menuItemCaption);
-        add.setOnAction((ev)-> _controller.getRoutedEvents().action(actionName));
+        add.setOnAction((ev)-> _controller.getRoutedEvents().action(actionName, null));
         menuFile.getItems().add(add);
         return add;
     }
