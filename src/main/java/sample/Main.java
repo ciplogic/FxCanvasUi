@@ -3,7 +3,6 @@ package sample;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import sample.mines.MainViewBuilder;
 import sample.painting.MainPaintViewBuilder;
 
 public class Main extends Application {

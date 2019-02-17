@@ -1,14 +1,19 @@
 package sample.painting.models;
 
-import sample.engine.painter.CanvasBuilder;
+import javafx.scene.image.Image;
 
 import java.io.File;
 
 public class DocumentData {
 
-    CanvasBuilder canvasBuilder;
+    Image image;
 
     public DocumentData(File file) {
-
+        try {
+            String urlFile = file.toURI().toURL().toString();
+            image = new Image(urlFile);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
